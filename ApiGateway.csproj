@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Ocelot" Version="19.0.2" />
+    <PackageReference Include="Partytime.Common" Version="1.0.5" />
+  </ItemGroup>
+
 </Project>

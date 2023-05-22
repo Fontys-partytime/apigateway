@@ -1,5 +1,22 @@
 {
   "Routes": [
+    // Authentication Service
+    {
+      "UpstreamPathTemplate": "/api/account",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authenticationwebapi",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/account"
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      // }
+    },
     // Parties Service
     {
       "UpstreamPathTemplate": "/api/parties",
@@ -7,11 +24,11 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "partytime-party-service",
+          "Host": "party",
           "Port": 5000
         }
       ],
-      "DownstreamPathTemplate": "/api/parties"
+      "DownstreamPathTemplate": "/parties"
     },
     {
       "UpstreamPathTemplate": "/api/parties/{id}",
@@ -19,12 +36,26 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "partytime-party-service",
+          "Host": "party",
           "Port": 5000
         }
       ],
-      "DownstreamPathTemplate": "/api/parties/{id}"
+      "DownstreamPathTemplate": "/parties/{id}"
     }
+    //,
+    // Joined Service
+    //{
+    //  "UpstreamPathTemplate": "/api/joined",
+    //  "UpstreamHttpMethod": [ "Get", "Post" ],
+    //  "DownstreamScheme": "http",
+    //  "DownstreamHostAndPorts": [
+    //    {
+    //     "Host": "partytime-joined-service",
+    //      "Port": 5004
+    //    }
+    //  ],
+    //  "DownstreamPathTemplate": "/api/joined"
+    //}
   ],
   "GlobalConfiguration": {
     "BaseUrl": "http://localhost:800"
