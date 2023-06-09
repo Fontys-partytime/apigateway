@@ -99,11 +99,5 @@
       ],
       "DownstreamPathTemplate": "/joined"
     }
-  ],
-  "GlobalConfiguration": {
-    "ServiceDiscoveryProvider": {
-      "Namespace": "default",
-      "Type": "kube"
-    }
-  }
+  ]
 }
