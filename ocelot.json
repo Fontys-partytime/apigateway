@@ -3,15 +3,12 @@
     // Authentication Service
     { // User verification login
       "UpstreamPathTemplate": "/user",
-      "LoadBalancerOptions": {
-        "Type": "LeastConnection"
-      },
       "ServiceName": "authentication",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "authenticationwebapi",
+          "Host": "authentication",
           "Port": 80
         }
       ],
@@ -31,7 +28,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "authenticationwebapi",
+          "Host": "authentication",
           "Port": 80
         }
       ],
@@ -51,7 +48,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "authenticationwebapi",
+          "Host": "authentication",
           "Port": 80
         }
       ],
@@ -105,7 +102,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "partytime-joined-service",
+          "Host": "joined",
           "Port": 5004
         }
       ],
