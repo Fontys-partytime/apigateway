@@ -20,9 +20,6 @@
     },
     {
       "UpstreamPathTemplate": "/account",
-      "LoadBalancerOptions": {
-        "Type": "LeastConnection"
-      },
       "ServiceName": "authentication",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamScheme": "http",
@@ -40,9 +37,6 @@
     },
     {
       "UpstreamPathTemplate": "/account/create",
-      "LoadBalancerOptions": {
-        "Type": "LeastConnection"
-      },
       "ServiceName": "authentication",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamScheme": "http",
@@ -61,9 +55,6 @@
     // Parties Service
     {
       "UpstreamPathTemplate": "/parties",
-      "LoadBalancerOptions": {
-        "Type": "LeastConnection"
-      },
       "ServiceName": "party",
       "UpstreamHttpMethod": [ "Get", "Post" ],
       "DownstreamScheme": "http",
@@ -77,9 +68,6 @@
     },
     {
       "UpstreamPathTemplate": "/parties/{id}",
-      "LoadBalancerOptions": {
-        "Type": "LeastConnection"
-      },
       "ServiceName": "party",
       "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
       "DownstreamScheme": "http",
@@ -94,9 +82,6 @@
     // Joined Service
     {
       "UpstreamPathTemplate": "/joined",
-      "LoadBalancerOptions": {
-        "Type": "LeastConnection"
-      },
       "ServiceName": "joined",
       "UpstreamHttpMethod": [ "Get", "Post" ],
       "DownstreamScheme": "http",
