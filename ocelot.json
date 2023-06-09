@@ -2,7 +2,11 @@
   "Routes": [
     // Authentication Service
     {
-      "UpstreamPathTemplate": "/api/account",
+      "UpstreamPathTemplate": "/account",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "ServiceName": "account",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -17,9 +21,33 @@
       //  "AllowedScopes": []
       // }
     },
+    {
+      "UpstreamPathTemplate": "/account/create",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "ServiceName": "account",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authenticationwebapi",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/account/create"
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      // }
+    },
     // Parties Service
     {
-      "UpstreamPathTemplate": "/api/parties",
+      "UpstreamPathTemplate": "/parties",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "ServiceName": "party",
       "UpstreamHttpMethod": [ "Get", "Post" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -31,7 +59,11 @@
       "DownstreamPathTemplate": "/parties"
     },
     {
-      "UpstreamPathTemplate": "/api/parties/{id}",
+      "UpstreamPathTemplate": "/parties/{id}",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "ServiceName": "party",
       "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -41,23 +73,23 @@
         }
       ],
       "DownstreamPathTemplate": "/parties/{id}"
-    }
-    //,
+    },
     // Joined Service
-    //{
-    //  "UpstreamPathTemplate": "/api/joined",
-    //  "UpstreamHttpMethod": [ "Get", "Post" ],
-    //  "DownstreamScheme": "http",
-    //  "DownstreamHostAndPorts": [
-    //    {
-    //     "Host": "partytime-joined-service",
-    //      "Port": 5004
-    //    }
-    //  ],
-    //  "DownstreamPathTemplate": "/api/joined"
-    //}
-  ],
-  "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:800"
-  }
+    {
+      "UpstreamPathTemplate": "/joined",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "ServiceName": "joined",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "partytime-joined-service",
+          "Port": 5004
+        }
+      ],
+      "DownstreamPathTemplate": "/joined"
+    }
+  ]
 }
