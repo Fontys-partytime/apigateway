@@ -21,7 +21,7 @@ builder.Services.AddCors(options =>
             .AllowCredentials());
 });
 
-builder.Services.AddOcelot(builder.Configuration).AddKubernetes().AddConsul();
+builder.Services.AddOcelot(builder.Configuration).AddKubernetes();
 builder.Services.AddCustomJwtAuthentication();
 
 var app = builder.Build();

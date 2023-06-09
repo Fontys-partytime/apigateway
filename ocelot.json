@@ -1,12 +1,32 @@
 {
   "Routes": [
     // Authentication Service
+    { // User verification login
+      "UpstreamPathTemplate": "/user",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      },
+      "ServiceName": "authentication",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authenticationwebapi",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/user"
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "Bearer",
+      //  "AllowedScopes": []
+      // }
+    },
     {
       "UpstreamPathTemplate": "/account",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       },
-      "ServiceName": "account",
+      "ServiceName": "authentication",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -26,7 +46,7 @@
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       },
-      "ServiceName": "account",
+      "ServiceName": "authentication",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
