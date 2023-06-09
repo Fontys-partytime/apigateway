@@ -8,9 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Ocelot" Version="19.0.2" />
-    <PackageReference Include="Ocelot.Provider.Consul" Version="19.0.2" />
-    <PackageReference Include="Ocelot.Provider.Kubernetes" Version="19.0.2" />
-    <PackageReference Include="Partytime.Common" Version="1.0.10" />
+    <PackageReference Include="Partytime.Common" Version="1.0.15" />
   </ItemGroup>
 
 </Project>
