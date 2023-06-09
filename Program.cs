@@ -1,7 +1,6 @@
 //using JwtAuthenticationManager;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
-using Ocelot.Provider.Kubernetes;
 using Partytime.Common.JwtAuthentication;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -19,7 +18,7 @@ builder.Services.AddCors(options =>
             .AllowCredentials());
 });
 
-builder.Services.AddOcelot(builder.Configuration).AddKubernetes();
+builder.Services.AddOcelot(builder.Configuration);
 builder.Services.AddCustomJwtAuthentication();
 
 var app = builder.Build();

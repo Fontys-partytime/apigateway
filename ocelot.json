@@ -3,7 +3,6 @@
     // Authentication Service
     { // User verification login
       "UpstreamPathTemplate": "/account/user",
-      "ServiceName": "authentication",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -20,7 +19,6 @@
     },
     {
       "UpstreamPathTemplate": "/account",
-      "ServiceName": "authentication",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -37,7 +35,6 @@
     },
     {
       "UpstreamPathTemplate": "/account/create",
-      "ServiceName": "authentication",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -54,8 +51,19 @@
     },
     // Parties Service
     {
+      "UpstreamPathTemplate": "/parties/testvoorbeeld",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "party",
+          "Port": 5000
+        }
+      ],
+      "DownstreamPathTemplate": "/parties/testvoorbeeld"
+    },
+    {
       "UpstreamPathTemplate": "/parties",
-      "ServiceName": "party",
       "UpstreamHttpMethod": [ "Get", "Post" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -68,7 +76,6 @@
     },
     {
       "UpstreamPathTemplate": "/parties/{id}",
-      "ServiceName": "party",
       "UpstreamHttpMethod": [ "Get", "Put", "Delete" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -82,7 +89,6 @@
     // Joined Service
     {
       "UpstreamPathTemplate": "/joined",
-      "ServiceName": "joined",
       "UpstreamHttpMethod": [ "Get", "Post" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
