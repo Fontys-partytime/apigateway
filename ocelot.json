@@ -2,17 +2,17 @@
   "Routes": [
     // Authentication Service
     { // User verification login
-      "UpstreamPathTemplate": "/user",
+      "UpstreamPathTemplate": "/account/user",
       "ServiceName": "authentication",
       "UpstreamHttpMethod": [ "Post" ],
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "authentication",
+          "Host": "authenticationwebapi",
           "Port": 80
         }
       ],
-      "DownstreamPathTemplate": "/user"
+      "DownstreamPathTemplate": "/account/user"
       //"AuthenticationOptions": {
       //  "AuthenticationProviderKey": "Bearer",
       //  "AllowedScopes": []
@@ -25,7 +25,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "authentication",
+          "Host": "authenticationwebapi",
           "Port": 80
         }
       ],
@@ -42,7 +42,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "authentication",
+          "Host": "authenticationwebapi",
           "Port": 80
         }
       ],
