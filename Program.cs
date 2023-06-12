@@ -24,7 +24,14 @@ builder.Services.AddCustomJwtAuthentication();
 var app = builder.Build();
 app.UseCors(MyAllowSpecificOrigins);
 
-app.UseOcelot().Wait();
+var configuration = new OcelotPipelineConfiguration
+{
+    AuthenticationMiddleware = async (cpt, est) =>
+    {
+        await est.Invoke();
+    }
+};
+app.UseOcelot(configuration).Wait();
 
 app.UseAuthentication();
 app.UseAuthorization();
