@@ -1,6 +1,7 @@
 //using JwtAuthenticationManager;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Values;
 using Partytime.Common.JwtAuthentication;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -18,20 +19,14 @@ builder.Services.AddCors(options =>
             .AllowCredentials());
 });
 
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddOcelot(builder.Configuration);
 builder.Services.AddCustomJwtAuthentication();
 
 var app = builder.Build();
 app.UseCors(MyAllowSpecificOrigins);
 
-var configuration = new OcelotPipelineConfiguration
-{
-    AuthenticationMiddleware = async (cpt, est) =>
-    {
-        await est.Invoke();
-    }
-};
-app.UseOcelot(configuration).Wait();
+app.UseOcelot().Wait();
 
 app.UseAuthentication();
 app.UseAuthorization();
